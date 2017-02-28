@@ -52,8 +52,8 @@ function addFields() {
   '<label for="new-state">State</label>' +
   '<input type="text" class="form-control new-state">' +
   '</div>' +
+  // '<span class="btn btn-primary remove-address">Remove</span>' +
   '</div>'
-  // + '<span class="btn btn-primary" id="remove-address">Remove</span>'
 );
 }
 
@@ -64,8 +64,8 @@ $(document).ready(function() {
     addFields();
   });
 
-  // $("#remove-address").click(function() {
-  //   $(".added-address").remove();
+  // $(".remove-address").click(function() {
+  //   $(".added-address").last().remove();
   // });
 
   $("form#new-contact").submit(function(event) {
