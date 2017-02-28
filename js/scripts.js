@@ -20,7 +20,7 @@ Address.prototype.fullAddress = function() {
 }
 
 function resetFields() {
-    $("input#new-first- name").val("");
+    $("input#new-first-name").val("");
     $("input#new-last-name").val("");
     $("input.new-street").val("");
     $("input.new-city").val("");
@@ -28,34 +28,45 @@ function resetFields() {
     $("input.new-address-type").val("");
 }
 
+function addFields() {
+  $("#new-addresses").append('<div class="new-address added-address">' +
+  '<div class="form-group">' +
+    '<label for="new-address-type">Address Type</label>' +
+    '<select class="form-control new-address-type">' +
+    '<option value="" disabled selected>Select your option</option>' +
+      '<option>Home</option>' +
+      '<option>Mailing</option>' +
+      '<option>Business</option>' +
+      '<option>Temporary</option>' +
+    '</select>' +
+  '</div>' +
+  '<div class="form-group">' +
+  '<label for="new-street">Street</label>' +
+  '<input type="text" class="form-control new-street">' +
+  '</div>' +
+  '<div class="form-group">' +
+  '<label for="new-city">City</label>' +
+  '<input type="text" class="form-control new-city">' +
+  '</div>' +
+  '<div class="form-group">' +
+  '<label for="new-state">State</label>' +
+  '<input type="text" class="form-control new-state">' +
+  '</div>' +
+  '</div>'
+  // + '<span class="btn btn-primary" id="remove-address">Remove</span>'
+);
+}
+
 //User interface logic
 $(document).ready(function() {
 
   $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-address" id="added-address">' +
-    '<div class="form-group">' +
-      '<label for="new-address-type">Address Type</label>' +
-      '<select class="form-control new-address-type">' +
-        '<option>Home</option>' +
-        '<option>Mailing</option>' +
-        '<option>Business</option>' +
-        '<option>Temporary</option>' +
-      '</select>' +
-    '</div>' +
-    '<div class="form-group">' +
-    '<label for="new-street">Street</label>' +
-    '<input type="text" class="form-control new-street">' +
-    '</div>' +
-    '<div class="form-group">' +
-    '<label for="new-city">City</label>' +
-    '<input type="text" class="form-control new-city">' +
-    '</div>' +
-    '<div class="form-group">' +
-    '<label for="new-state">State</label>' +
-    '<input type="text" class="form-control new-state">' +
-    '</div>' +
-    '</div>');
+    addFields();
   });
+
+  // $("#remove-address").click(function() {
+  //   $(".added-address").remove();
+  // });
 
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
@@ -87,6 +98,6 @@ $(document).ready(function() {
     });
 
     resetFields();
-    $("#added-address").remove();
+    $(".added-address").remove();
   });
 });
