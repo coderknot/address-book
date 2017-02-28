@@ -8,3 +8,7 @@
 .contact:hover {
   text-decoration: underline;
 }
+
+.address-property {
+  font-weight: bold;
+}
